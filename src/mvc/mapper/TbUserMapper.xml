@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mvc.mapper.TbUserMapper">
+  <resultMap id="BaseResultMap" type="mvc.pojo.TbUser">
+    <id column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="BA_ID" jdbcType="VARCHAR" property="baId" />
+    <result column="COMP_ID" jdbcType="VARCHAR" property="compId" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="USER_PWD" jdbcType="VARCHAR" property="userPwd" />
+    <result column="REAL_NAME" jdbcType="VARCHAR" property="realName" />
+    <result column="IP" jdbcType="VARCHAR" property="ip" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="USER_TEL" jdbcType="VARCHAR" property="userTel" />
+    <result column="RG_ID" jdbcType="VARCHAR" property="rgId" />
+    <result column="NOTE" jdbcType="VARCHAR" property="note" />
+    <result column="ISLOGINM" jdbcType="VARCHAR" property="isloginm" />
+    <result column="ISLOGIND" jdbcType="VARCHAR" property="islogind" />
+    <result column="LONGTI" jdbcType="DECIMAL" property="longti" />
+    <result column="LATI" jdbcType="DECIMAL" property="lati" />
+    <result column="MAPFILE" jdbcType="VARCHAR" property="mapfile" />
+    <result column="LIVEUPDATE" jdbcType="VARCHAR" property="liveupdate" />
+    <result column="REFRESH_TIME" jdbcType="TIMESTAMP" property="refreshTime" />
+    <result column="VIEW_TYPE" jdbcType="VARCHAR" property="viewType" />
+    <result column="RE_ID" jdbcType="VARCHAR" property="reId" />
+    <result column="MAP_ID" jdbcType="VARCHAR" property="mapId" />
+    <result column="OWNER_ID" jdbcType="VARCHAR" property="ownerId" />
+    <result column="MODIFY_STATUS" jdbcType="VARCHAR" property="modifyStatus" />
+    <result column="HK_USERNAME" jdbcType="VARCHAR" property="hkUsername" />
+    <result column="HK_PASSWORD" jdbcType="VARCHAR" property="hkPassword" />
+    <result column="LOGIN_TIME" jdbcType="TIMESTAMP" property="loginTime" />
+    <result column="OGID" jdbcType="VARCHAR" property="ogid" />
+    <result column="OWNER_QRYID" jdbcType="VARCHAR" property="ownerQryid" />
+    <result column="MAPSIZE" jdbcType="VARCHAR" property="mapsize" />
+    <result column="MAPUPDATETIME" jdbcType="VARCHAR" property="mapupdatetime" />
+    <result column="MAPCREATETIME" jdbcType="VARCHAR" property="mapcreatetime" />
+    <result column="BAK_BA_ID" jdbcType="VARCHAR" property="bakBaId" />
+    <result column="BAK_COMP_ID" jdbcType="VARCHAR" property="bakCompId" />
+    <result column="BAK_VIEWTYPE" jdbcType="VARCHAR" property="bakViewtype" />
+    <result column="BAK_PWD" jdbcType="VARCHAR" property="bakPwd" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    USER_ID, BA_ID, COMP_ID, USER_NAME, USER_PWD, REAL_NAME, IP, ADDRESS, USER_TEL, RG_ID, 
+    NOTE, ISLOGINM, ISLOGIND, LONGTI, LATI, MAPFILE, LIVEUPDATE, REFRESH_TIME, VIEW_TYPE, 
+    RE_ID, MAP_ID, OWNER_ID, MODIFY_STATUS, HK_USERNAME, HK_PASSWORD, LOGIN_TIME, OGID, 
+    OWNER_QRYID, MAPSIZE, MAPUPDATETIME, MAPCREATETIME, BAK_BA_ID, BAK_COMP_ID, BAK_VIEWTYPE, 
+    BAK_PWD
+  </sql>
+  
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_USER
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TB_USER
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="mvc.pojo.TbUser">
+    insert into TB_USER (USER_ID, BA_ID, COMP_ID, 
+      USER_NAME, USER_PWD, REAL_NAME, 
+      IP, ADDRESS, USER_TEL, 
+      RG_ID, NOTE, ISLOGINM, 
+      ISLOGIND, LONGTI, LATI, 
+      MAPFILE, LIVEUPDATE, REFRESH_TIME, 
+      VIEW_TYPE, RE_ID, MAP_ID, 
+      OWNER_ID, MODIFY_STATUS, HK_USERNAME, 
+      HK_PASSWORD, LOGIN_TIME, OGID, 
+      OWNER_QRYID, MAPSIZE, MAPUPDATETIME, 
+      MAPCREATETIME, BAK_BA_ID, BAK_COMP_ID, 
+      BAK_VIEWTYPE, BAK_PWD)
+    values (#{userId,jdbcType=VARCHAR}, #{baId,jdbcType=VARCHAR}, #{compId,jdbcType=VARCHAR}, 
+      #{userName,jdbcType=VARCHAR}, #{userPwd,jdbcType=VARCHAR}, #{realName,jdbcType=VARCHAR}, 
+      #{ip,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{userTel,jdbcType=VARCHAR}, 
+      #{rgId,jdbcType=VARCHAR}, #{note,jdbcType=VARCHAR}, #{isloginm,jdbcType=VARCHAR}, 
+      #{islogind,jdbcType=VARCHAR}, #{longti,jdbcType=DECIMAL}, #{lati,jdbcType=DECIMAL}, 
+      #{mapfile,jdbcType=VARCHAR}, #{liveupdate,jdbcType=VARCHAR}, #{refreshTime,jdbcType=TIMESTAMP}, 
+      #{viewType,jdbcType=VARCHAR}, #{reId,jdbcType=VARCHAR}, #{mapId,jdbcType=VARCHAR}, 
+      #{ownerId,jdbcType=VARCHAR}, #{modifyStatus,jdbcType=VARCHAR}, #{hkUsername,jdbcType=VARCHAR}, 
+      #{hkPassword,jdbcType=VARCHAR}, #{loginTime,jdbcType=TIMESTAMP}, #{ogid,jdbcType=VARCHAR}, 
+      #{ownerQryid,jdbcType=VARCHAR}, #{mapsize,jdbcType=VARCHAR}, #{mapupdatetime,jdbcType=VARCHAR}, 
+      #{mapcreatetime,jdbcType=VARCHAR}, #{bakBaId,jdbcType=VARCHAR}, #{bakCompId,jdbcType=VARCHAR}, 
+      #{bakViewtype,jdbcType=VARCHAR}, #{bakPwd,jdbcType=VARCHAR})
+  </insert>
+  
+</mapper>
